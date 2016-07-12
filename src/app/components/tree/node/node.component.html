@@ -27,14 +27,15 @@
 
 <div>
     <ul>
-        <li draggable="true">
+        <li draggable="true" (dragstart)="dragStart($event,self.id,dragValid)" (drop)="onDrop($event)" (dragover)="allowDrop($event)">
         {{level}}
             <!-- <input type="checkbox" checked="checked" (change)="loadChild()"/> -->
             <div>
+                <input type="checkbox" [(ngModel)]="dragValid" />
                 <label *ngIf="!self?.child">{{self?.id}} {{self?.name}}</label>
                 <label *ngIf="self?.child" (click)="loadChild()"><span *ngIf="state==='load'">+</span><span *ngIf="state==='delete'">-</span>{{self?.id}} {{self?.name}}</label>
                 <ul *ngIf="self?.children">
-                    <li *ngFor="let child of self?.children" draggable="true">
+                    <li *ngFor="let child of self?.children">
                         <app-node [self]="child" [level]="level+1"></app-node>
                     </li>
                 </ul>

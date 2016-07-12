@@ -12,8 +12,8 @@ export class AppComponent {
   title = 'app works!';
 
   items=[
-  	{id:"id",name:"name1",child:"url",children:[{id:"id",name:"name2"},{id:"id",name:"name2"}]},
-  	{id:"id",name:"name2",child:"url",children:[{id:"id",name:"name2"},{id:"id",name:"name2"}]},
+  	{id:"id",name:"name1",child:"url",children:[]},
+  	{id:"id",name:"name2",child:"url",children:[]},
   	{id:"id",name:"name3"},
   	{id:"id",name:"name4",child:"url",children:[]},
   ];
