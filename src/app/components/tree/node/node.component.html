@@ -28,13 +28,14 @@
 <div>
     <ul>
         <li draggable="true">
+        {{level}}
             <!-- <input type="checkbox" checked="checked" (change)="loadChild()"/> -->
             <div>
                 <label *ngIf="!self?.child">{{self?.id}} {{self?.name}}</label>
                 <label *ngIf="self?.child" (click)="loadChild()"><span *ngIf="state==='load'">+</span><span *ngIf="state==='delete'">-</span>{{self?.id}} {{self?.name}}</label>
                 <ul *ngIf="self?.children">
                     <li *ngFor="let child of self?.children" draggable="true">
-                        <app-node [self]="child"></app-node>
+                        <app-node [self]="child" [level]="level+1"></app-node>
                     </li>
                 </ul>
             </div>

@@ -10,6 +10,8 @@ import {DragDrop} from '../../../directive/drag-drop.directive';
 })
 export class NodeComponent implements OnInit {
 
+	@Input('level') level:number;
+
 	@Input('self') self:any;
 
 	state='load';
