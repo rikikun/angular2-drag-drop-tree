@@ -1,3 +1,44 @@
-<p>
-  node works!
-</p>
+<!-- <div class="acidjs-css3-treeview">
+    <ul>
+        <li draggable="true">
+            <input type="checkbox" id="node-0" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0">Libraries</label>
+            <ul>
+                <li draggable="true">
+                    <input type="checkbox" id="node-0-0" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0-0">Documents</label>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="node-0-0-0" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0-0-0">My Documents</label>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="node-0-0-0-0" /><label><input type="checkbox" /><span></span></label><label for="node-0-0-0-0">Downloads</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="node-0-0-0-1" /><label><input type="checkbox" /><span></span></label><label for="node-0-0-0-1">Projects</label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div> -->
+
+
+<div>
+    <ul>
+        <li draggable="true">
+            <!-- <input type="checkbox" checked="checked" (change)="loadChild()"/> -->
+            <div>
+                <label *ngIf="!self?.child">{{self?.id}} {{self?.name}}</label>
+                <label *ngIf="self?.child" (click)="loadChild()"><span *ngIf="state==='load'">+</span><span *ngIf="state==='delete'">-</span>{{self?.id}} {{self?.name}}</label>
+                <ul *ngIf="self?.children">
+                    <li *ngFor="let child of self?.children" draggable="true">
+                        <app-node [self]="child"></app-node>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
